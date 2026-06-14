@@ -28,9 +28,9 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
 
 /* NAVBAR */
 .nav{position:sticky;top:0;z-index:900;background:rgba(17,17,17,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 1.2rem}
-.nav-brand{font-family:'Bebas Neue',sans-serif;font-size:1.55rem;letter-spacing:1px;background:linear-gradient(135deg,var(--orange),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;cursor:pointer}
+.nav-brand{font-family:'Bebas Neue',sans-serif;font-size:1.55rem;letter-spacing:1px;background:linear-gradient(135deg,var(--orange),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;cursor:pointer;font-weight:800}
 .nav-links{display:flex;gap:.1rem;list-style:none}
-.nav-links button{background:none;border:none;cursor:pointer;color:var(--muted);font-family:'Nunito',sans-serif;font-weight:700;font-size:.85rem;padding:.4rem .75rem;border-radius:8px;transition:color var(--t)}
+.nav-links button{background:none;border:none;cursor:pointer;color:var(--muted);font-family:'Nunito',sans-serif;font-weight:700;font-size:.85rem;padding:.4rem .75rem;border-radius:8px;transition:color var(--t),background var(--t)}
 .nav-links button:hover,.nav-links button.active{color:var(--orange);background:rgba(255,107,0,.1)}
 .nav-right{display:flex;align-items:center;gap:.3rem}
 .cart-btn{background:none;border:none;cursor:pointer;font-size:1.25rem;padding:.4rem .55rem;border-radius:8px;color:var(--muted);position:relative;transition:color var(--t)}
@@ -44,13 +44,13 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
 .hbg.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 .mob-menu{display:none;position:fixed;top:60px;left:0;right:0;z-index:850;background:#111;border-bottom:1px solid var(--border);padding:.75rem 1.2rem;flex-direction:column;gap:.2rem}
 .mob-menu.open{display:flex}
-.mob-menu button{background:none;border:none;cursor:pointer;color:var(--muted);font-family:'Nunito',sans-serif;font-weight:700;font-size:.9rem;padding:.65rem 1rem;border-radius:8px;text-align:left;transition:color var(--t)}
+.mob-menu button{background:none;border:none;cursor:pointer;color:var(--muted);font-family:'Nunito',sans-serif;font-weight:700;font-size:.9rem;padding:.65rem 1rem;border-radius:8px;text-align:left;transition:color var(--t),background var(--t)}
 .mob-menu button:hover{color:var(--orange);background:rgba(255,107,0,.1)}
 
 /* CART SIDEBAR */
 #cart-ov{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.6);backdrop-filter:blur(3px);opacity:0;visibility:hidden;transition:var(--t)}
 #cart-ov.open{opacity:1;visibility:visible}
-#cart-sb{position:fixed;top:0;right:0;bottom:0;width:min(370px,95vw);z-index:1001;background:var(--card);border-left:1px solid var(--border);display:flex;flex-direction:column;transform:translateX(100%);transition:transform var(--t)}
+#cart-sb{position:fixed;top:0;right:0;bottom:0;width:min(370px,95vw);z-index:1001;background:var(--card);border-left:1px solid var(--border);display:flex;flex-direction:column;transform:translateX(400px);transition:transform var(--t)}
 #cart-sb.open{transform:translateX(0)}
 .c-head{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1.3rem;border-bottom:1px solid var(--border)}
 .c-head h3{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:1px}
@@ -63,7 +63,7 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
 .c-name{font-weight:800;font-size:.88rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .c-price{color:var(--yellow);font-weight:700;font-size:.82rem;margin-top:.1rem}
 .c-qty{display:flex;align-items:center;gap:.35rem;margin-top:.4rem}
-.q-btn{width:24px;height:24px;border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:5px;cursor:pointer;font-weight:800;font-size:.85rem;display:flex;align-items:center;justify-content:center;transition:border-color var(--t)}
+.q-btn{width:24px;height:24px;border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:5px;cursor:pointer;font-weight:800;font-size:.85rem;display:flex;align-items:center;justify-content:center;transition:border-color var(--t),color var(--t)}
 .q-btn:hover{border-color:var(--orange);color:var(--orange)}
 .q-n{font-weight:800;font-size:.85rem;min-width:16px;text-align:center}
 .c-rm{background:none;border:none;cursor:pointer;color:var(--muted);font-size:.95rem;padding:.15rem;transition:color var(--t);margin-left:auto;align-self:flex-start}
@@ -75,7 +75,7 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
 .c-empty-ico{font-size:2.8rem;margin-bottom:.6rem}
 
 /* TOAST */
-#toast{position:fixed;bottom:1.3rem;right:1.3rem;z-index:8000;background:var(--card);border:1px solid var(--border);border-left:4px solid var(--orange);padding:.75rem 1.1rem;border-radius:10px;font-weight:700;font-size:.88rem;transform:translateX(450px);transition:transform var(--t)}
+#toast{position:fixed;bottom:1.3rem;right:1.3rem;z-index:8000;background:var(--card);border:1px solid var(--border);border-left:4px solid var(--orange);padding:.75rem 1.1rem;border-radius:10px;font-size:.88rem;transform:translateX(420px);transition:transform var(--t)}
 #toast.show{transform:translateX(0)}
 
 /* PAGES */
@@ -87,7 +87,7 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
 .login-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2.3rem 2rem;width:100%;max-width:400px;animation:fadeUp .45s ease}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 .l-logo{text-align:center;margin-bottom:1.6rem}
-.l-brand{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:2px;background:linear-gradient(135deg,var(--orange),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.l-brand{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:2px;background:linear-gradient(135deg,var(--orange),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:800}
 .l-tag{color:var(--muted);font-size:.82rem}
 .fg{margin-bottom:1rem}
 .fg label{display:block;font-weight:700;font-size:.82rem;margin-bottom:.35rem;color:var(--muted);letter-spacing:.3px}
@@ -101,7 +101,7 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
 .l-note span{color:var(--orange)}
 
 /* ── BTN ── */
-.btn{display:inline-flex;align-items:center;gap:.45rem;padding:.65rem 1.4rem;border-radius:10px;font-weight:800;font-family:'Nunito',sans-serif;font-size:.88rem;cursor:pointer;border:none;transition:var(--t)}
+.btn{display:inline-flex;align-items:center;gap:.45rem;padding:.65rem 1.4rem;border-radius:10px;font-weight:800;font-family:'Nunito',sans-serif;font-size:.88rem;cursor:pointer;border:none;transition:transform var(--t),box-shadow var(--t)}
 .btn-p{background:linear-gradient(135deg,var(--orange),#ff8c00);color:#fff;box-shadow:0 4px 16px rgba(255,107,0,.3)}
 .btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,0,.45)}
 .btn-o{background:transparent;color:var(--orange);border:2px solid var(--orange)}
@@ -127,10 +127,10 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
 .hero-ring{position:relative;width:min(340px,88vw);aspect-ratio:1}
 .hero-glow{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,rgba(255,107,0,.18) 0%,transparent 65%);animation:pulse 3s ease-in-out infinite}
 @keyframes pulse{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.07);opacity:1}}
-.hero-food{position:relative;z-index:1;width:100%;height:100%;border-radius:50%;border:3px solid rgba(255,107,0,.25);display:flex;align-items:center;justify-content:center;font-size:9rem;background:radial-gradient(ellipse,rgba(255,107,0,.08),rgba(0,0,0,.2));animation:float 3s ease-in-out infinite;color:#000;overflow:hidden}
+.hero-food{position:relative;z-index:1;width:100%;height:100%;border-radius:50%;border:3px solid rgba(255,107,0,.25);display:flex;align-items:center;justify-content:center;font-size:9rem;background:rgba(255,107,0,.05);animation:float 3.5s ease-in-out infinite}
 .hero-food img{width:100%;height:100%;object-fit:cover;border-radius:50%}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-.chip{position:absolute;background:var(--card);border:1px solid var(--border);border-radius:30px;padding:.45rem .85rem;font-size:.75rem;font-weight:700;display:flex;align-items:center;gap:.35rem;box-shadow:0 4px 12px rgba(0,0,0,.3);animation:float 3s ease-in-out infinite}
+.chip{position:absolute;background:var(--card);border:1px solid var(--border);border-radius:30px;padding:.45rem .85rem;font-size:.75rem;font-weight:700;display:flex;align-items:center;gap:.35rem;animation:float 3.5s ease-in-out infinite}
 .chip-1{top:8%;right:-8%;animation-delay:-.5s}
 .chip-2{bottom:14%;left:-8%;animation-delay:-1.5s}
 .chip-3{top:54%;right:-13%;animation-delay:-1s}
@@ -173,14 +173,14 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
 .stars{color:var(--yellow);font-size:.9rem;margin-bottom:.55rem}
 .rev-text{color:var(--muted);font-size:.84rem;margin-bottom:.8rem;line-height:1.6}
 .reviewer{display:flex;align-items:center;gap:.55rem}
-.rev-av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--red));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.82rem;flex-shrink:0;color:#fff}
+.rev-av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--red));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.82rem;color:#fff}
 .rev-name{font-weight:700;font-size:.85rem}
 .rev-loc{color:var(--muted);font-size:.73rem}
 
 /* ── MENU PAGE ── */
 .menu-hero{padding:2.5rem 1.2rem;text-align:center;background:linear-gradient(135deg,rgba(255,107,0,.1) 0%,rgba(214,48,49,.07) 100%);border-bottom:1px solid var(--border)}
 .search-wrap{position:relative;max-width:420px;margin:1.3rem auto 0}
-.search-wrap input{width:100%;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:50px;padding:.7rem 1.1rem .7rem 2.8rem;color:var(--text);font-family:'Nunito',sans-serif;font-size:.88rem;outline:none;transition:border-color var(--t)}
+.search-wrap input{width:100%;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:50px;padding:.7rem 1.1rem .7rem 2.8rem;color:var(--text);font-family:'Nunito',sans-serif;font-size:.9rem;outline:none;transition:border-color var(--t)}
 .search-wrap input:focus{border-color:var(--orange)}
 .search-wrap input::placeholder{color:#444}
 .s-ico{position:absolute;left:.95rem;top:50%;transform:translateY(-50%);color:var(--muted);font-size:.95rem;pointer-events:none}
@@ -215,7 +215,7 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
 .footer{background:#0A0A0A;border-top:1px solid var(--border);padding:2.5rem 1.2rem 1.3rem}
 .f-inner{max-width:1060px;margin:0 auto}
 .f-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:1.8rem;margin-bottom:1.8rem}
-.f-brand{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:1px;background:linear-gradient(135deg,var(--orange),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.f-brand{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:1px;background:linear-gradient(135deg,var(--orange),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:800}
 .f-tag{color:var(--muted);font-size:.82rem}
 .f-col h4{font-weight:800;font-size:.87rem;margin-bottom:.8rem}
 .f-col ul{list-style:none;display:flex;flex-direction:column;gap:.35rem}
@@ -343,10 +343,10 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
     <div class="sec-inner">
       <div class="sec-hd"><h2 class="sec-title">Happy <span>Customers</span></h2><div class="divider"></div><p class="sec-sub">What our regulars say about us</p></div>
       <div class="rev-grid">
-        <div class="rev-card"><div class="stars">★★★★★</div><p class="rev-text">Best vada pav I've had outside of Dadar! The chutney is absolutely spot-on. Orders arrive piping hot every single time.</p><div class="reviewer"><div class="rev-av">RP</div><div><div class="rev-name">Rohan Patel</div><div class="rev-loc">Mumbai</div></div></div></div>
-        <div class="rev-card"><div class="stars">★★★★★</div><p class="rev-text">The crispy burger here is unreal. Juicy, cheesy, perfectly grilled. I order it twice a week and it never disappoints.</p><div class="reviewer"><div class="rev-av">SK</div><div><div class="rev-name">Sneha Kumar</div><div class="rev-loc">Mumbai</div></div></div></div>
-        <div class="rev-card"><div class="stars">★★★★☆</div><p class="rev-text">Spicy franky is my go-to evening snack. Love the crispy exterior and the flavour-packed filling. Very quick delivery.</p><div class="reviewer"><div class="rev-av">AM</div><div><div class="rev-name">Aman Mehta</div><div class="rev-loc">Vadodara</div></div></div></div>
-        <div class="rev-card"><div class="stars">★★★★★</div><p class="rev-text">French fries with that seasoning are addictive. My kids demand CrispyAndDeals every weekend. Great value for money!</p><div class="reviewer"><div class="rev-av">PM</div><div><div class="rev-name">Priya Mishra</div><div class="rev-loc">Mumbai</div></div></div></div>
+        <div class="rev-card"><div class="stars">★★★★★</div><p class="rev-text">Best vada pav I've had outside of Dadar! The chutney is absolutely spot-on. Orders arrive piping hot ever[...]
+        <div class="rev-card"><div class="stars">★★★★★</div><p class="rev-text">The crispy burger here is unreal. Juicy, cheesy, perfectly grilled. I order it twice a week and it never [...]
+        <div class="rev-card"><div class="stars">★★★★☆</div><p class="rev-text">Spicy franky is my go-to evening snack. Love the crispy exterior and the flavour-packed filling. Very qui[...]
+        <div class="rev-card"><div class="stars">★★★★★</div><p class="rev-text">French fries with that seasoning are addictive. My kids demand CrispyAndDeals every weekend. Great value [...]
       </div>
     </div>
   </section>
@@ -599,11 +599,11 @@ function filterMenu(){
   document.getElementById('no-res').style.display=vis?'none':'block';
 }
 
-// ── HISTORY ─��
+// ── HISTORY ──
 function renderHistory(){
   const el=document.getElementById('h-list');if(!el)return;
   const hist=LS.get('cnd_history')||[];
-  if(!hist.length){el.innerHTML=`<div class="empty-h"><div class="e-ico">📋</div><p>No orders yet. Start by ordering something delicious!</p><button class="btn btn-p" style="margin-top:1rem" onclick="showPage('menu')">Order Now</button></div>`;return;}
+  if(!hist.length){el.innerHTML=`<div class="empty-h"><div class="e-ico">📋</div><p>No orders yet. Start by ordering something delicious!</p><button class="btn btn-p" style="margin-top:1rem" onclick="showPage('menu')">Browse Menu</button></div>`;return;}
   el.innerHTML=hist.map(o=>`
     <div class="h-card">
       <div class="h-head"><div><div class="h-id">${o.id}</div><div class="h-date">📅 ${o.date}</div></div><span class="h-status">✓ Delivered</span></div>
