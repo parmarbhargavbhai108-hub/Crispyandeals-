@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrispyAndDeals</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- Variables & Reset --- */
+        :root {
+            --bg-dark: #121212;
+            --card-bg: #1e1e1e;
+            --primary: #ff4757; 
+            --accent: #ffa502;  
+            --text-light: #f1f2f6;
+            --text-muted: #a4b0be;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { color: #fff; }
+        .brand-logo span, .logo span { color: var(--accent); }
+
+        /* --- Buttons --- */
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .primary-btn { background-color: var(--primary); color: white; }
+        .primary-btn:hover { background-color: var(--accent); transform: translateY(-2px); }
+
+        .icon-btn {
+            background: none; border: none; color: var(--text-light);
+            cursor: pointer; font-size: 1.2rem; padding: 5px;
+        }
+        .icon-btn:hover { color: var(--primary); }
+
+        /* --- Navbar --- */
+        .navbar {
+            display: none; /* Hidden on login page */
+            justify-content: space-between; align-items: center;
+            padding: 15px 5%; background-color: #000;
+            position: sticky; top: 0; z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .logo { font-size: 1.8rem; font-weight: 800; cursor: pointer; }
+
+        .nav-links { list-style: none; display: flex; gap: 20px; }
+        .nav-links li { cursor: pointer; font-weight: 500; transition: var(--transition); }
+        .nav-links li:hover, .nav-links li.active { color: var(--accent); }
+
+        .cart-icon-nav { position: relative; cursor: pointer; font-size: 1.5rem; }
+        #cart-count {
+            position: absolute; top: -10px; right: -10px;
+            background-color: var(--primary); color: white;
+            font-size: 0.8rem; padding: 2px 6px; border-radius: 50%; font-weight: bold;
+        }
+
+        /* --- Page Switching System --- */
+        .page { display: none; min-height: 100vh; animation: fadeIn 0.5s ease; }
+        .page.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- Login Page --- */
+        #login-page {
+            display: flex; justify-content: center; align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1500&q=80') center/cover;
+        }
+        .login-card {
+            background-color: var(--card-bg); padding: 40px; border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8); border-top: 4px solid var(--primary);
+            width: 100%; max-width: 400px; text-align: center;
+        }
+        .login-card p { color: var(--text-muted); margin-bottom: 20px; }
+        .input-group { position: relative; margin-bottom: 20px; text-align: left; }
+        .input-group i { position: absolute; top: 50%; left: 15px; transform: translateY(-50%); color: var(--text-muted); }
+        .input-group input {
+            width: 100%; padding: 12px 12px 12px 40px; background-color: #2f3640;
+            border: 1px solid #353b48; border-radius: 5px; color: white; outline: none;
+        }
+        .input-group input:focus { border-color: var(--accent); }
+        .login-card .btn { width: 100%; }
+
+        /* --- Home Page --- */
+        .hero {
+            height: 70vh; display: flex; align-items: center; justify-content: center;
+            text-align: center; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1626804475297-41607ea0b4eb?auto=format&fit=crop&w=1500&q=80') center/cover;
+        }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; color: var(--accent); }
+        .hero p { font-size: 1.2rem; margin-bottom: 20px; }
+        
+        .reviews { padding: 50px 5%; text-align: center; }
+        .reviews h2 { margin-bottom: 30px; color: var(--primary); }
+        .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .review-card { background: var(--card-bg); padding: 20px; border-radius: 8px; font-style: italic; border-left: 3px solid var(--accent); }
+        .review-card h4 { margin-top: 15px; color: var(--primary); font-style: normal; }
+
+        /* --- Menu & Cart Layout --- */
+        .menu-container { padding: 50px 5%; }
+        .menu-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 15px;}
+        .menu-header h2 { color: var(--primary); }
+        #search-food { padding: 10px; border-radius: 5px; border: none; background: #2f3640; color: white; width: 250px; }
+
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 50px;}
+        .food-card { background-color: var(--card-bg); border-radius: 10px; overflow: hidden; transition: var(--transition); box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .food-card:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(255, 71, 87, 0.2); }
+        .food-img { width: 100%; height: 200px; object-fit: cover; border-bottom: 3px solid var(--accent); }
+        .food-info { padding: 20px; text-align: center; }
+        .food-info h3 { margin-bottom: 10px; }
+        .food-price { color: var(--accent); font-size: 1.5rem; font-weight: bold; margin-bottom: 10px; }
+        .food-desc { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px; }
+        .food-card .btn { width: 100%; }
+
+        /* Cart Section */
+        .cart-wrapper { background-color: #0d0d0d; padding: 30px; border-radius: 10px; border: 1px solid #333;}
+        .cart-wrapper h2 { color: var(--accent); margin-bottom: 20px; border-bottom: 1px solid #333; padding-bottom: 10px;}
+        .cart-item { display: flex; justify-content: space-between; align-items: center; background: var(--card-bg); padding: 15px; border-radius: 8px; margin-bottom: 10px; }
+        .cart-controls { display: flex; align-items: center; gap: 10px; }
+        .cart-controls span { font-weight: bold; width: 20px; text-align: center;}
+        .cart-summary { text-align: right; margin-top: 20px; }
+
+        /* --- History Page --- */
+        .history-section { padding: 50px 5%; }
+        .history-section h2 { color: var(--primary); margin-bottom: 20px; }
+        .history-card { background: var(--card-bg); padding: 20px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid var(--accent); }
+        .history-date { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px;}
+        .history-total { color: var(--primary); font-weight: bold; margin-top: 10px;}
+
+        /* --- Footer --- */
+        footer { background: #000; text-align: center; padding: 20px; border-top: 1px solid #333; margin-top: auto;}
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+            .cart-item { flex-direction: column; gap: 10px; align-items: flex-start;}
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="logo" onclick="switchPage('home-page')">Crispy<span>And</span>Deals</div>
+        <ul class="nav-links" id="nav-links">
+            <li onclick="switchPage('home-page')" class="nav-item active" data-target="home-page">Home</li>
+            <li onclick="switchPage('menu-page')" class="nav-item" data-target="menu-page">Menu & Cart</li>
+            <li onclick="switchPage('history-page')" class="nav-item" data-target="history-page">Order History</li>
+            <li onclick="logout()">Logout</li>
+        </ul>
+        <div class="cart-icon-nav" onclick="switchPage('menu-page')">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span id="cart-count">0</span>
+        </div>
+    </nav>
+
+    <section id="login-page" class="page active">
+        <div class="login-card">
+            <h1 class="brand-logo">Crispy<span>And</span>Deals 🍔</h1>
+            <p>Sign in to satisfy your cravings!</p>
+            <form onsubmit="login(event)">
+                <div class="input-group">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" id="username" placeholder="Username" required>
+                </div>
+                <div class="input-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn primary-btn">Login</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="home-page" class="page">
+        <header class="hero">
+            <div>
+                <h1>Welcome to CrispyAndDeals</h1>
+                <p>Fresh, Crispy & Delicious Food Delivered Fast!</p>
+                <button class="btn primary-btn" onclick="switchPage('menu-page')">Order Now</button>
+            </div>
+        </header>
+        <section class="reviews">
+            <h2>Customer Reviews</h2>
+            <div class="review-grid">
+                <div class="review-card">
+                    <p>"The best burgers in town! The crispiness is unmatched."</p>
+                    <h4>- Rahul S.</h4>
+                </div>
+                <div class="review-card">
+                    <p>"Fast delivery and the Franky was super spicy and delicious!"</p>
+                    <h4>- Priya M.</h4>
+                </div>
+                <div class="review-card">
+                    <p>"Authentic Mumbai Vada Pav taste. Highly recommended."</p>
+                    <h4>- Amit K.</h4>
+                </div>
+            </div>
+        </section>
+        <footer><p>Contact: support@crispyandeals.com | +91 98765 43210</p></footer>
+    </section>
+
+    <section id="menu-page" class="page">
+        <div class="menu-container">
+            <div class="menu-header">
+                <h2>Our Menu</h2>
+                <input type="text" id="search-food" placeholder="Search food..." onkeyup="searchMenu()">
+            </div>
+            
+            <div class="menu-grid" id="menu-grid"></div>
+
+            <div class="cart-wrapper" id="cart-section">
+                <h2><i class="fa-solid fa-cart-shopping"></i> Your Cart</h2>
+                <div id="cart-items"></div>
+                <div class="cart-summary">
+                    <h3>Total: ₹<span id="cart-total">0</span></h3>
+                    <button class="btn primary-btn" onclick="checkout()" id="checkout-btn" style="display:none;">Checkout Securely</button>
+                </div>
+            </div>
+        </div>
+        <footer><p>&copy; 2026 CrispyAndDeals. All rights reserved.</p></footer>
+    </section>
+
+    <section id="history-page" class="page">
+        <div class="history-section">
+            <h2>Your Order History</h2>
+            <div id="history-container"></div>
+        </div>
+        <footer><p>&copy; 2026 CrispyAndDeals. All rights reserved.</p></footer>
+    </section>
+
+    <script>
+        // --- Database ---
+        const menuData = [
+            { id: 1, name: "Burger 🍔", price: 149, desc: "Crispy grilled burger with cheese and fresh vegetables.", image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80" },
+            { id: 2, name: "Franky 🌯", price: 99, desc: "Spicy and delicious street-style franky.", image: "https://images.unsplash.com/photo-1626804475297-41607ea0b4eb?auto=format&fit=crop&w=500&q=80" },
+            { id: 3, name: "Vada Pav 🥪", price: 49, desc: "Mumbai-style vada pav with special chutney.", image: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=500&q=80" },
+            { id: 4, name: "French Fries 🍟", price: 79, desc: "Golden crispy French fries.", image: "https://images.unsplash.com/photo-1576107232684-1279f390859f?auto=format&fit=crop&w=500&q=80" }
+        ];
+
+        // --- State Variables ---
+        let cart = JSON.parse(localStorage.getItem('cad_cart')) || [];
+        let orderHistory = JSON.parse(localStorage.getItem('cad_history')) || [];
+
+        // --- Initialization ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderMenu(menuData);
+            updateCartUI();
+            
+            // Check if already logged in
+            if(localStorage.getItem('cad_user')) {
+                document.getElementById('navbar').style.display = 'flex';
+                switchPage('home-page');
+            }
+        });
+
+        // --- Navigation Logic ---
+        function switchPage(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update active nav link
+            document.querySelectorAll('.nav-item').forEach(nav => {
+                nav.classList.remove('active');
+                if(nav.getAttribute('data-target') === pageId) nav.classList.add('active');
+            });
+
+            // If navigating to history, re-render it
+            if(pageId === 'history-page') renderHistory();
+            window.scrollTo(0, 0);
+        }
+
+        // --- Auth Logic ---
+        function login(e) {
+            e.preventDefault();
+            const user = document.getElementById('username').value;
+            localStorage.setItem('cad_user', user);
+            document.getElementById('navbar').style.display = 'flex';
+            switchPage('home-page');
+        }
+
+        function logout() {
+            localStorage.removeItem('cad_user');
+            document.getElementById('navbar').style.display = 'none';
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+            switchPage('login-page');
+        }
+
+        // --- Menu Logic ---
+        function renderMenu(items) {
+            const grid = document.getElementById('menu-grid');
+            grid.innerHTML = '';
+            items.forEach(item => {
+                grid.innerHTML += `
+                    <div class="food-card">
+                        <img src="${item.image}" alt="${item.name}" class="food-img">
+                        <div class="food-info">
+                            <h3>${item.name}</h3>
+                            <p class="food-desc">${item.desc}</p>
+                            <p class="food-price">₹${item.price}</p>
+                            <button class="btn primary-btn" onclick="addToCart(${item.id})">Add to Cart</button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function searchMenu() {
+            const query = document.getElementById('search-food').value.toLowerCase();
+            const filtered = menuData.filter(item => item.name.toLowerCase().includes(query));
+            renderMenu(filtered);
+        }
+
+        // --- Cart Logic ---
+        function addToCart(id) {
+            const item = menuData.find(i => i.id === id);
+            const existing = cart.find(c => c.id === id);
+            if(existing) existing.qty += 1;
+            else cart.push({ ...item, qty: 1 });
+            
+            saveCart();
+        }
+
+        function updateQty(id, change) {
+            const item = cart.find(c => c.id === id);
+            if(item) {
+                item.qty += change;
+                if(item.qty <= 0) cart = cart.filter(c => c.id !== id);
+                saveCart();
+            }
+        }
+
+        function removeItem(id) {
+            cart = cart.filter(c => c.id !== id);
+            saveCart();
+        }
+
+        function saveCart() {
+            localStorage.setItem('cad_cart', JSON.stringify(cart));
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const container = document.getElementById('cart-items');
+            const totalEl = document.getElementById('cart-total');
+            const checkoutBtn = document.getElementById('checkout-btn');
+            const countNav = document.getElementById('cart-count');
+            
+            // Update Bubble Counter
+            countNav.innerText = cart.reduce((sum, i) => sum + i.qty, 0);
+
+            if(cart.length === 0) {
+                container.innerHTML = '<p style="color: var(--text-muted);">Your cart is empty. Add some delicious food!</p>';
+                totalEl.innerText = '0';
+                checkoutBtn.style.display = 'none';
+                return;
+            }
+
+            container.innerHTML = '';
+            let total = 0;
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.qty;
+                total += itemTotal;
+                container.innerHTML += `
+                    <div class="cart-item">
+                        <div>
+                            <h4>${item.name}</h4>
+                            <small>₹${item.price} x ${item.qty}</small>
+                        </div>
+                        <div class="cart-controls">
+                            <button class="icon-btn" onclick="updateQty(${item.id}, -1)"><i class="fa-solid fa-minus"></i></button>
+                            <span>${item.qty}</span>
+                            <button class="icon-btn" onclick="updateQty(${item.id}, 1)"><i class="fa-solid fa-plus"></i></button>
+                            <button class="icon-btn" style="color: var(--primary); margin-left: 15px;" onclick="removeItem(${item.id})"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                        <div style="font-weight:bold; color:var(--accent);">₹${itemTotal}</div>
+                    </div>
+                `;
+            });
+
+            totalEl.innerText = total;
+            checkoutBtn.style.display = 'inline-block';
+        }
+
+        // --- Checkout & History Logic ---
+        function checkout() {
+            if(cart.length === 0) return;
+            
+            const total = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+            const dateStr = new Date().toLocaleString('en-IN');
+            
+            const order = { id: Date.now(), date: dateStr, items: [...cart], total: total };
+            
+            orderHistory.unshift(order);
+            localStorage.setItem('cad_history', JSON.stringify(orderHistory));
+            
+            cart = [];
+            saveCart();
+            
+            alert(`Order Placed Successfully! Total Paid: ₹${total}`);
+            switchPage('history-page');
+        }
+
+        function renderHistory() {
+            const container = document.getElementById('history-container');
+            if(orderHistory.length === 0) {
+                container.innerHTML = '<p style="color: var(--text-muted);">No past orders found.</p>';
+                return;
+            }
+
+            container.innerHTML = '';
+            orderHistory.forEach(order => {
+                const itemsList = order.items.map(i => `${i.name} (x${i.qty})`).join(', ');
+                container.innerHTML += `
+                    <div class="history-card">
+                        <div class="history-date"><i class="fa-regular fa-clock"></i> ${order.date}</div>
+                        <div><p style="color: var(--text-light); margin-bottom: 5px;"><strong>Items:</strong> ${itemsList}</p></div>
+                        <div class="history-total">Total Paid: ₹${order.total}</div>
+                    </div>
+                `;
+            });
+        }
+    </script>
+</body>
+</html>
+
