@@ -1,0 +1,99 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Weather App</h1>
+        <input type="text" id="location-input" placeholder="Enter a location (e.g., London)">
+        <button id="get-weather-btn">Get Weather</button>
+        <div id="weather-display"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+h1 {
+    color: #333;
+}
+
+input {
+    padding: 10px;
+    width: 80%;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#weather-display {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+document.getElementById('get-weather-btn').addEventListener('click', function() {
+    const location = document.getElementById('location-input').value.trim();
+    const display = document.getElementById('weather-display');
+    
+    if (!location) {
+        display.textContent = 'Please enter a location.';
+        return;
+    }
+    
+    // Construct the API URL with the user's location
+    const apiUrl = `http://api.weatherapi.com/v1/current.json?key=cb6538f8a8fc4df1be492634250201&q=${encodeURIComponent(location)}&aqi=yes`;
+    
+    // Fetch weather data
+    fetch(apiUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Location not found or API error.');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const tempC = data.current.temp_c;
+            display.textContent = `Current temperature in ${location}: ${tempC}°C`;
+        })
+        .catch(error => {
+            display.textContent = `Error: ${error.message}`;
+        });
+});
+
