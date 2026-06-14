@@ -22,15 +22,15 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
 /* LOADER */
 #loader{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;transition:opacity .4s,visibility .4s}
 #loader.gone{opacity:0;visibility:hidden}
-.ld-name{font-family:'Bebas Neue',sans-serif;font-size:2.8rem;background:linear-gradient(135deg,var(--orange),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:2px}
+.ld-name{font-family:'Bebas Neue',sans-serif;font-size:2.8rem;background:linear-gradient(135deg,var(--orange),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:1px}
 .ld-ring{width:44px;height:44px;border:3px solid var(--border);border-top-color:var(--orange);border-radius:50%;animation:spin .75s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 
 /* NAVBAR */
 .nav{position:sticky;top:0;z-index:900;background:rgba(17,17,17,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 1.2rem}
-.nav-brand{font-family:'Bebas Neue',sans-serif;font-size:1.55rem;letter-spacing:1px;background:linear-gradient(135deg,var(--orange),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;cursor:pointer;user-select:none}
+.nav-brand{font-family:'Bebas Neue',sans-serif;font-size:1.55rem;letter-spacing:1px;background:linear-gradient(135deg,var(--orange),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;cursor:pointer}
 .nav-links{display:flex;gap:.1rem;list-style:none}
-.nav-links button{background:none;border:none;cursor:pointer;color:var(--muted);font-family:'Nunito',sans-serif;font-weight:700;font-size:.85rem;padding:.4rem .75rem;border-radius:8px;transition:color var(--t),background var(--t)}
+.nav-links button{background:none;border:none;cursor:pointer;color:var(--muted);font-family:'Nunito',sans-serif;font-weight:700;font-size:.85rem;padding:.4rem .75rem;border-radius:8px;transition:color var(--t)}
 .nav-links button:hover,.nav-links button.active{color:var(--orange);background:rgba(255,107,0,.1)}
 .nav-right{display:flex;align-items:center;gap:.3rem}
 .cart-btn{background:none;border:none;cursor:pointer;font-size:1.25rem;padding:.4rem .55rem;border-radius:8px;color:var(--muted);position:relative;transition:color var(--t)}
@@ -44,7 +44,7 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
 .hbg.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 .mob-menu{display:none;position:fixed;top:60px;left:0;right:0;z-index:850;background:#111;border-bottom:1px solid var(--border);padding:.75rem 1.2rem;flex-direction:column;gap:.2rem}
 .mob-menu.open{display:flex}
-.mob-menu button{background:none;border:none;cursor:pointer;color:var(--muted);font-family:'Nunito',sans-serif;font-weight:700;font-size:.9rem;padding:.65rem 1rem;border-radius:8px;text-align:left;transition:var(--t)}
+.mob-menu button{background:none;border:none;cursor:pointer;color:var(--muted);font-family:'Nunito',sans-serif;font-weight:700;font-size:.9rem;padding:.65rem 1rem;border-radius:8px;text-align:left;transition:color var(--t)}
 .mob-menu button:hover{color:var(--orange);background:rgba(255,107,0,.1)}
 
 /* CART SIDEBAR */
@@ -58,12 +58,12 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
 .c-close:hover{color:var(--red)}
 .c-items{flex:1;overflow-y:auto;padding:.9rem 1.3rem;display:flex;flex-direction:column;gap:.75rem}
 .c-item{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:.8rem;display:flex;gap:.8rem;align-items:center}
-.c-item-img{width:56px;height:56px;border-radius:8px;object-fit:cover;flex-shrink:0;font-size:2rem;display:flex;align-items:center;justify-content:center;background:rgba(255,107,0,.08)}
+.c-item-img{width:56px;height:56px;border-radius:8px;object-fit:cover;flex-shrink:0}
 .c-info{flex:1;min-width:0}
 .c-name{font-weight:800;font-size:.88rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .c-price{color:var(--yellow);font-weight:700;font-size:.82rem;margin-top:.1rem}
 .c-qty{display:flex;align-items:center;gap:.35rem;margin-top:.4rem}
-.q-btn{width:24px;height:24px;border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:5px;cursor:pointer;font-weight:800;font-size:.85rem;display:flex;align-items:center;justify-content:center;transition:var(--t)}
+.q-btn{width:24px;height:24px;border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:5px;cursor:pointer;font-weight:800;font-size:.85rem;display:flex;align-items:center;justify-content:center;transition:border-color var(--t)}
 .q-btn:hover{border-color:var(--orange);color:var(--orange)}
 .q-n{font-weight:800;font-size:.85rem;min-width:16px;text-align:center}
 .c-rm{background:none;border:none;cursor:pointer;color:var(--muted);font-size:.95rem;padding:.15rem;transition:color var(--t);margin-left:auto;align-self:flex-start}
@@ -75,7 +75,7 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
 .c-empty-ico{font-size:2.8rem;margin-bottom:.6rem}
 
 /* TOAST */
-#toast{position:fixed;bottom:1.3rem;right:1.3rem;z-index:8000;background:var(--card);border:1px solid var(--border);border-left:4px solid var(--orange);padding:.75rem 1.1rem;border-radius:10px;font-weight:700;font-size:.85rem;max-width:270px;transform:translateX(130%);transition:transform .3s cubic-bezier(.4,0,.2,1)}
+#toast{position:fixed;bottom:1.3rem;right:1.3rem;z-index:8000;background:var(--card);border:1px solid var(--border);border-left:4px solid var(--orange);padding:.75rem 1.1rem;border-radius:10px;font-weight:700;font-size:.88rem;transform:translateX(450px);transition:transform var(--t)}
 #toast.show{transform:translateX(0)}
 
 /* PAGES */
@@ -87,11 +87,11 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
 .login-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2.3rem 2rem;width:100%;max-width:400px;animation:fadeUp .45s ease}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 .l-logo{text-align:center;margin-bottom:1.6rem}
-.l-brand{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:2px;background:linear-gradient(135deg,var(--orange),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:block}
+.l-brand{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:2px;background:linear-gradient(135deg,var(--orange),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .l-tag{color:var(--muted);font-size:.82rem}
 .fg{margin-bottom:1rem}
 .fg label{display:block;font-weight:700;font-size:.82rem;margin-bottom:.35rem;color:var(--muted);letter-spacing:.3px}
-.fg input{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:10px;padding:.75rem 1rem;color:var(--text);font-family:'Nunito',sans-serif;font-size:.93rem;outline:none;transition:border-color var(--t),box-shadow var(--t)}
+.fg input{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:10px;padding:.75rem 1rem;color:var(--text);font-family:'Nunito',sans-serif;font-size:.93rem;outline:none;transition:border-color var(--t)}
 .fg input:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(255,107,0,.13)}
 .fg input::placeholder{color:#444}
 .rem-row{display:flex;align-items:center;gap:.55rem;margin-bottom:1.2rem}
@@ -101,7 +101,7 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
 .l-note span{color:var(--orange)}
 
 /* ── BTN ── */
-.btn{display:inline-flex;align-items:center;gap:.45rem;padding:.65rem 1.4rem;border-radius:10px;font-weight:800;font-family:'Nunito',sans-serif;font-size:.88rem;cursor:pointer;border:none;transition:var(--t);text-decoration:none;letter-spacing:.2px}
+.btn{display:inline-flex;align-items:center;gap:.45rem;padding:.65rem 1.4rem;border-radius:10px;font-weight:800;font-family:'Nunito',sans-serif;font-size:.88rem;cursor:pointer;border:none;transition:var(--t)}
 .btn-p{background:linear-gradient(135deg,var(--orange),#ff8c00);color:#fff;box-shadow:0 4px 16px rgba(255,107,0,.3)}
 .btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,0,.45)}
 .btn-o{background:transparent;color:var(--orange);border:2px solid var(--orange)}
@@ -127,9 +127,10 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
 .hero-ring{position:relative;width:min(340px,88vw);aspect-ratio:1}
 .hero-glow{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,rgba(255,107,0,.18) 0%,transparent 65%);animation:pulse 3s ease-in-out infinite}
 @keyframes pulse{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.07);opacity:1}}
-.hero-food{position:relative;z-index:1;width:100%;height:100%;border-radius:50%;border:3px solid rgba(255,107,0,.25);display:flex;align-items:center;justify-content:center;font-size:9rem;background:rgba(255,107,0,.06);animation:float 4s ease-in-out infinite}
+.hero-food{position:relative;z-index:1;width:100%;height:100%;border-radius:50%;border:3px solid rgba(255,107,0,.25);display:flex;align-items:center;justify-content:center;font-size:9rem;background:radial-gradient(ellipse,rgba(255,107,0,.08),rgba(0,0,0,.2));animation:float 3s ease-in-out infinite;color:#000;overflow:hidden}
+.hero-food img{width:100%;height:100%;object-fit:cover;border-radius:50%}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-.chip{position:absolute;background:var(--card);border:1px solid var(--border);border-radius:30px;padding:.45rem .85rem;font-size:.75rem;font-weight:700;display:flex;align-items:center;gap:.35rem;box-shadow:0 4px 16px rgba(0,0,0,.4);animation:float 4s ease-in-out infinite}
+.chip{position:absolute;background:var(--card);border:1px solid var(--border);border-radius:30px;padding:.45rem .85rem;font-size:.75rem;font-weight:700;display:flex;align-items:center;gap:.35rem;box-shadow:0 4px 12px rgba(0,0,0,.3);animation:float 3s ease-in-out infinite}
 .chip-1{top:8%;right:-8%;animation-delay:-.5s}
 .chip-2{bottom:14%;left:-8%;animation-delay:-1.5s}
 .chip-3{top:54%;right:-13%;animation-delay:-1s}
@@ -148,6 +149,7 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
 .food-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:transform var(--t),box-shadow var(--t),border-color var(--t)}
 .food-card:hover{transform:translateY(-5px);box-shadow:0 14px 40px rgba(255,107,0,.16);border-color:rgba(255,107,0,.38)}
 .fc-img-wrap{position:relative;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:rgba(255,107,0,.06)}
+.fc-img-wrap img{width:100%;height:100%;object-fit:cover}
 .fc-emoji{font-size:5rem;user-select:none}
 .fc-badge{position:absolute;top:8px;left:8px;background:var(--orange);color:#fff;font-size:.68rem;font-weight:800;padding:.18rem .55rem;border-radius:5px;text-transform:uppercase;letter-spacing:.4px}
 .fc-body{padding:1rem;flex:1;display:flex;flex-direction:column;gap:.45rem}
@@ -171,14 +173,14 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
 .stars{color:var(--yellow);font-size:.9rem;margin-bottom:.55rem}
 .rev-text{color:var(--muted);font-size:.84rem;margin-bottom:.8rem;line-height:1.6}
 .reviewer{display:flex;align-items:center;gap:.55rem}
-.rev-av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--red));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.82rem;flex-shrink:0}
+.rev-av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--red));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.82rem;flex-shrink:0;color:#fff}
 .rev-name{font-weight:700;font-size:.85rem}
 .rev-loc{color:var(--muted);font-size:.73rem}
 
 /* ── MENU PAGE ── */
 .menu-hero{padding:2.5rem 1.2rem;text-align:center;background:linear-gradient(135deg,rgba(255,107,0,.1) 0%,rgba(214,48,49,.07) 100%);border-bottom:1px solid var(--border)}
 .search-wrap{position:relative;max-width:420px;margin:1.3rem auto 0}
-.search-wrap input{width:100%;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:50px;padding:.7rem 1.1rem .7rem 2.8rem;color:var(--text);font-family:'Nunito',sans-serif;font-size:.9rem;outline:none;transition:border-color var(--t)}
+.search-wrap input{width:100%;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:50px;padding:.7rem 1.1rem .7rem 2.8rem;color:var(--text);font-family:'Nunito',sans-serif;font-size:.88rem;outline:none;transition:border-color var(--t)}
 .search-wrap input:focus{border-color:var(--orange)}
 .search-wrap input::placeholder{color:#444}
 .s-ico{position:absolute;left:.95rem;top:50%;transform:translateY(-50%);color:var(--muted);font-size:.95rem;pointer-events:none}
@@ -213,7 +215,7 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
 .footer{background:#0A0A0A;border-top:1px solid var(--border);padding:2.5rem 1.2rem 1.3rem}
 .f-inner{max-width:1060px;margin:0 auto}
 .f-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:1.8rem;margin-bottom:1.8rem}
-.f-brand{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:1px;background:linear-gradient(135deg,var(--orange),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.45rem}
+.f-brand{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:1px;background:linear-gradient(135deg,var(--orange),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .f-tag{color:var(--muted);font-size:.82rem}
 .f-col h4{font-weight:800;font-size:.87rem;margin-bottom:.8rem}
 .f-col ul{list-style:none;display:flex;flex-direction:column;gap:.35rem}
@@ -225,7 +227,7 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
 .f-heart{color:var(--red)}
 
 /* RESPONSIVE */
-@media(max-width:860px){.hero-inner{grid-template-columns:1fr;text-align:center}.hero-sub,.hero-cta,.hero-stats{margin-left:auto;margin-right:auto}.hero-cta{justify-content:center}.hero-stats{justify-content:center}.hero-visual{display:none}}
+@media(max-width:860px){.hero-inner{grid-template-columns:1fr;text-align:center}.hero-sub,.hero-cta,.hero-stats{margin-left:auto;margin-right:auto}.hero-cta{justify-content:center}.hero-stats{justify-content:center}}
 @media(max-width:640px){.nav-links{display:none}.hbg{display:flex}}
 @media(max-width:400px){.login-card,.lo-card{padding:1.6rem 1.1rem}}
 </style>
@@ -301,7 +303,7 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
       <div class="hero-visual">
         <div class="hero-ring">
           <div class="hero-glow"></div>
-          <div class="hero-food">🍔</div>
+          <div class="hero-food"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd" alt="Burger"></div>
           <div class="chip chip-1">🍔 ₹149</div>
           <div class="chip chip-2">🌯 ₹99</div>
           <div class="chip chip-3">🍟 ₹79</div>
@@ -341,10 +343,10 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
     <div class="sec-inner">
       <div class="sec-hd"><h2 class="sec-title">Happy <span>Customers</span></h2><div class="divider"></div><p class="sec-sub">What our regulars say about us</p></div>
       <div class="rev-grid">
-        <div class="rev-card"><div class="stars">★★★★★</div><p class="rev-text">Best vada pav I've had outside of Dadar! The chutney is absolutely spot-on. Orders arrive piping hot every single time.</p><div class="reviewer"><div class="rev-av">P</div><div><div class="rev-name">Priya M.</div><div class="rev-loc">📍 Vadodara</div></div></div></div>
-        <div class="rev-card"><div class="stars">★★★★★</div><p class="rev-text">The crispy burger here is unreal. Juicy, cheesy, perfectly grilled. I order it twice a week and it never disappoints.</p><div class="reviewer"><div class="rev-av">R</div><div><div class="rev-name">Rahul K.</div><div class="rev-loc">📍 Surat</div></div></div></div>
-        <div class="rev-card"><div class="stars">★★★★☆</div><p class="rev-text">Spicy franky is my go-to evening snack. Love the crispy exterior and the flavour-packed filling. Very quick delivery too!</p><div class="reviewer"><div class="rev-av">A</div><div><div class="rev-name">Aisha S.</div><div class="rev-loc">📍 Ahmedabad</div></div></div></div>
-        <div class="rev-card"><div class="stars">★★★★★</div><p class="rev-text">French fries with that seasoning are addictive. My kids demand CrispyAndDeals every weekend. Great value for money!</p><div class="reviewer"><div class="rev-av">S</div><div><div class="rev-name">Snehal D.</div><div class="rev-loc">📍 Baroda</div></div></div></div>
+        <div class="rev-card"><div class="stars">★★★★★</div><p class="rev-text">Best vada pav I've had outside of Dadar! The chutney is absolutely spot-on. Orders arrive piping hot every single time.</p><div class="reviewer"><div class="rev-av">RP</div><div><div class="rev-name">Rohan Patel</div><div class="rev-loc">Mumbai</div></div></div></div>
+        <div class="rev-card"><div class="stars">★★★★★</div><p class="rev-text">The crispy burger here is unreal. Juicy, cheesy, perfectly grilled. I order it twice a week and it never disappoints.</p><div class="reviewer"><div class="rev-av">SK</div><div><div class="rev-name">Sneha Kumar</div><div class="rev-loc">Mumbai</div></div></div></div>
+        <div class="rev-card"><div class="stars">★★★★☆</div><p class="rev-text">Spicy franky is my go-to evening snack. Love the crispy exterior and the flavour-packed filling. Very quick delivery.</p><div class="reviewer"><div class="rev-av">AM</div><div><div class="rev-name">Aman Mehta</div><div class="rev-loc">Vadodara</div></div></div></div>
+        <div class="rev-card"><div class="stars">★★★★★</div><p class="rev-text">French fries with that seasoning are addictive. My kids demand CrispyAndDeals every weekend. Great value for money!</p><div class="reviewer"><div class="rev-av">PM</div><div><div class="rev-name">Priya Mishra</div><div class="rev-loc">Mumbai</div></div></div></div>
       </div>
     </div>
   </section>
@@ -435,34 +437,42 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
 
 <script>
 // ── DATA ──
-const MENU=const MENU=[
+const MENU=[
 {
-id:'burger',
-name:'Crispy Burger',
-price:149,
-image:'https://images.unsplash.com/photo-1568901346375-23c9450c58cd',
-badge:'Best Seller'
+  id:'burger',
+  name:'Crispy Burger',
+  price:149,
+  image:'https://images.unsplash.com/photo-1568901346375-23c9450c58cd',
+  emoji:'🍔',
+  desc:'Juicy patty with crispy fries, cheese & special sauce',
+  badge:'Best Seller'
 },
 {
-id:'franky',
-name:'Spicy Franky',
-price:99,
-image:'https://images.unsplash.com/photo-1504674900247-0877df9cc836',
-badge:'Street Fav'
+  id:'franky',
+  name:'Spicy Franky',
+  price:99,
+  image:'https://images.unsplash.com/photo-1504674900247-0877df9cc836',
+  emoji:'🌯',
+  desc:'Traditional Mumbai street wrap filled with veggies & spices',
+  badge:'Street Fav'
 },
 {
-id:'vadapav',
-name:'Vada Pav',
-price:49,
-image:'https://upload.wikimedia.org/wikipedia/commons/4/4b/Vada_Pav.jpg',
-badge:'Mumbai Style'
+  id:'vadapav',
+  name:'Vada Pav',
+  price:49,
+  image:'https://upload.wikimedia.org/wikipedia/commons/4/4b/Vada_Pav.jpg',
+  emoji:'🥙',
+  desc:'Crispy potato dumpling with tangy chutney',
+  badge:'Mumbai Style'
 },
 {
-id:'fries',
-name:'French Fries',
-price:79,
-image:'https://images.unsplash.com/photo-1576107232684-1279f390859f',
-badge:'Crispy!'
+  id:'fries',
+  name:'French Fries',
+  price:79,
+  image:'https://images.unsplash.com/photo-1576107232684-1279f390859f',
+  emoji:'🍟',
+  desc:'Golden, crispy fries with seasoning salt',
+  badge:'Crispy!'
 }
 ];
 
@@ -499,9 +509,9 @@ function renderCartItems(){
   if(!cart.length){el.innerHTML=`<div class="c-empty"><div class="c-empty-ico">🛒</div><p>Your cart is empty.<br>Add something delicious!</p></div>`;if(tot)tot.textContent='₹0';return;}
   el.innerHTML=cart.map(item=>`
     <div class="c-item">
-      <div class="c-item-img">${item.emoji}</div>
+      <img src="${item.image}" alt="${item.name}" class="c-item-img">
       <div class="c-info">
-        <div class="c-name">${item.name}</div>
+        <div class="c-name">${item.emoji} ${item.name}</div>
         <div class="c-price">₹${item.price} each</div>
         <div class="c-qty">
           <button class="q-btn" onclick="changeQty('${item.id}',-1)">−</button>
@@ -567,7 +577,7 @@ function doLogout(){localStorage.removeItem('cnd_user');cart=[];saveCart();locat
 // ── FOOD CARDS ──
 function buildCard(item){
   return`<div class="food-card" data-name="${item.name.toLowerCase()}">
-    <div class="fc-img-wrap"><img src="${item.image}" style="width:100%;height:100%;object-fit:cover;"><span class="fc-badge">${item.badge}</span></div>
+    <div class="fc-img-wrap"><img src="${item.image}" alt="${item.name}" onerror="this.style.display='none'"><span class="fc-badge">${item.badge}</span></div>
     <div class="fc-body">
       <div class="fc-name">${item.emoji} ${item.name}</div>
       <div class="fc-desc">${item.desc}</div>
@@ -589,11 +599,11 @@ function filterMenu(){
   document.getElementById('no-res').style.display=vis?'none':'block';
 }
 
-// ── HISTORY ──
+// ── HISTORY ─��
 function renderHistory(){
   const el=document.getElementById('h-list');if(!el)return;
   const hist=LS.get('cnd_history')||[];
-  if(!hist.length){el.innerHTML=`<div class="empty-h"><div class="e-ico">📋</div><p>No orders yet. Start by ordering something delicious!</p><button class="btn btn-p" style="margin-top:1rem" onclick="showPage('menu')">Browse Menu</button></div>`;return;}
+  if(!hist.length){el.innerHTML=`<div class="empty-h"><div class="e-ico">📋</div><p>No orders yet. Start by ordering something delicious!</p><button class="btn btn-p" style="margin-top:1rem" onclick="showPage('menu')">Order Now</button></div>`;return;}
   el.innerHTML=hist.map(o=>`
     <div class="h-card">
       <div class="h-head"><div><div class="h-id">${o.id}</div><div class="h-date">📅 ${o.date}</div></div><span class="h-status">✓ Delivered</span></div>
