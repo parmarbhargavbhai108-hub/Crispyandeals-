@@ -27,10 +27,10 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
 @keyframes spin{to{transform:rotate(360deg)}}
 
 /* NAVBAR */
-.nav{position:sticky;top:0;z-index:900;background:rgba(17,17,17,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 1.2rem}
-.nav-brand{font-family:'Bebas Neue',sans-serif;font-size:1.55rem;letter-spacing:1px;background:linear-gradient(135deg,var(--orange),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;cursor:pointer;font-weight:800}
+.nav{position:sticky;top:0;z-index:900;background:rgba(17,17,17,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem}
+.nav-brand{font-family:'Bebas Neue',sans-serif;font-size:1.55rem;letter-spacing:1px;background:linear-gradient(135deg,var(--orange),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;cursor:pointer}
 .nav-links{display:flex;gap:.1rem;list-style:none}
-.nav-links button{background:none;border:none;cursor:pointer;color:var(--muted);font-family:'Nunito',sans-serif;font-weight:700;font-size:.85rem;padding:.4rem .75rem;border-radius:8px;transition:color var(--t),background var(--t)}
+.nav-links button{background:none;border:none;cursor:pointer;color:var(--muted);font-family:'Nunito',sans-serif;font-weight:700;font-size:.85rem;padding:.4rem .75rem;border-radius:8px;transition:color var(--t)}
 .nav-links button:hover,.nav-links button.active{color:var(--orange);background:rgba(255,107,0,.1)}
 .nav-right{display:flex;align-items:center;gap:.3rem}
 .cart-btn{background:none;border:none;cursor:pointer;font-size:1.25rem;padding:.4rem .55rem;border-radius:8px;color:var(--muted);position:relative;transition:color var(--t)}
@@ -44,7 +44,7 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
 .hbg.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 .mob-menu{display:none;position:fixed;top:60px;left:0;right:0;z-index:850;background:#111;border-bottom:1px solid var(--border);padding:.75rem 1.2rem;flex-direction:column;gap:.2rem}
 .mob-menu.open{display:flex}
-.mob-menu button{background:none;border:none;cursor:pointer;color:var(--muted);font-family:'Nunito',sans-serif;font-weight:700;font-size:.9rem;padding:.65rem 1rem;border-radius:8px;text-align:left;transition:color var(--t),background var(--t)}
+.mob-menu button{background:none;border:none;cursor:pointer;color:var(--muted);font-family:'Nunito',sans-serif;font-weight:700;font-size:.9rem;padding:.65rem 1rem;border-radius:8px;text-align:left;transition:color var(--t)}
 .mob-menu button:hover{color:var(--orange);background:rgba(255,107,0,.1)}
 
 /* CART SIDEBAR */
@@ -63,7 +63,7 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
 .c-name{font-weight:800;font-size:.88rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .c-price{color:var(--yellow);font-weight:700;font-size:.82rem;margin-top:.1rem}
 .c-qty{display:flex;align-items:center;gap:.35rem;margin-top:.4rem}
-.q-btn{width:24px;height:24px;border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:5px;cursor:pointer;font-weight:800;font-size:.85rem;display:flex;align-items:center;justify-content:center;transition:border-color var(--t),color var(--t)}
+.q-btn{width:24px;height:24px;border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:5px;cursor:pointer;font-weight:800;font-size:.85rem;display:flex;align-items:center;justify-content:center}
 .q-btn:hover{border-color:var(--orange);color:var(--orange)}
 .q-n{font-weight:800;font-size:.85rem;min-width:16px;text-align:center}
 .c-rm{background:none;border:none;cursor:pointer;color:var(--muted);font-size:.95rem;padding:.15rem;transition:color var(--t);margin-left:auto;align-self:flex-start}
@@ -75,7 +75,7 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
 .c-empty-ico{font-size:2.8rem;margin-bottom:.6rem}
 
 /* TOAST */
-#toast{position:fixed;bottom:1.3rem;right:1.3rem;z-index:8000;background:var(--card);border:1px solid var(--border);border-left:4px solid var(--orange);padding:.75rem 1.1rem;border-radius:10px;font-size:.88rem;transform:translateX(420px);transition:transform var(--t)}
+#toast{position:fixed;bottom:1.3rem;right:1.3rem;z-index:8000;background:var(--card);border:1px solid var(--border);border-left:4px solid var(--orange);padding:.75rem 1.1rem;border-radius:10px;font-size:.85rem;transform:translateX(500px);transition:transform var(--t)}
 #toast.show{transform:translateX(0)}
 
 /* PAGES */
@@ -87,11 +87,11 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
 .login-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2.3rem 2rem;width:100%;max-width:400px;animation:fadeUp .45s ease}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 .l-logo{text-align:center;margin-bottom:1.6rem}
-.l-brand{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:2px;background:linear-gradient(135deg,var(--orange),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:800}
+.l-brand{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:2px;background:linear-gradient(135deg,var(--orange),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .l-tag{color:var(--muted);font-size:.82rem}
 .fg{margin-bottom:1rem}
 .fg label{display:block;font-weight:700;font-size:.82rem;margin-bottom:.35rem;color:var(--muted);letter-spacing:.3px}
-.fg input{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:10px;padding:.75rem 1rem;color:var(--text);font-family:'Nunito',sans-serif;font-size:.93rem;outline:none;transition:border-color var(--t)}
+.fg input{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:10px;padding:.75rem 1rem;color:var(--text);font-family:'Nunito',sans-serif;font-size:.93rem;outline:none}
 .fg input:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(255,107,0,.13)}
 .fg input::placeholder{color:#444}
 .rem-row{display:flex;align-items:center;gap:.55rem;margin-bottom:1.2rem}
@@ -124,13 +124,13 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
 .stat-num{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;color:var(--orange);line-height:1}
 .stat-lbl{color:var(--muted);font-size:.72rem;font-weight:700;letter-spacing:.5px}
 .hero-visual{display:flex;justify-content:center}
-.hero-ring{position:relative;width:min(340px,88vw);aspect-ratio:1}
+.hero-ring{position:relative;width:min(380px,88vw);aspect-ratio:1}
 .hero-glow{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,rgba(255,107,0,.18) 0%,transparent 65%);animation:pulse 3s ease-in-out infinite}
 @keyframes pulse{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.07);opacity:1}}
-.hero-food{position:relative;z-index:1;width:100%;height:100%;border-radius:50%;border:3px solid rgba(255,107,0,.25);display:flex;align-items:center;justify-content:center;font-size:9rem;background:rgba(255,107,0,.05);animation:float 3.5s ease-in-out infinite}
-.hero-food img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.hero-food{position:relative;z-index:1;width:100%;height:100%;border-radius:50%;border:3px solid rgba(255,107,0,.25);display:flex;align-items:center;justify-content:center;font-size:9rem;background:radial-gradient(circle,rgba(255,107,0,.08),transparent)}
+.hero-food img{width:90%;height:90%;object-fit:cover;border-radius:50%}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-.chip{position:absolute;background:var(--card);border:1px solid var(--border);border-radius:30px;padding:.45rem .85rem;font-size:.75rem;font-weight:700;display:flex;align-items:center;gap:.35rem;animation:float 3.5s ease-in-out infinite}
+.chip{position:absolute;background:var(--card);border:1px solid var(--border);border-radius:30px;padding:.45rem .85rem;font-size:.75rem;font-weight:700;display:flex;align-items:center;gap:.35rem;animation:float 3s ease-in-out infinite}
 .chip-1{top:8%;right:-8%;animation-delay:-.5s}
 .chip-2{bottom:14%;left:-8%;animation-delay:-1.5s}
 .chip-3{top:54%;right:-13%;animation-delay:-1s}
@@ -145,11 +145,11 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
 .sec-sub{color:var(--muted);font-size:.9rem;margin-top:.35rem}
 
 /* Food grid */
-.food-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.1rem}
+.food-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.1rem}
 .food-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:transform var(--t),box-shadow var(--t),border-color var(--t)}
 .food-card:hover{transform:translateY(-5px);box-shadow:0 14px 40px rgba(255,107,0,.16);border-color:rgba(255,107,0,.38)}
-.fc-img-wrap{position:relative;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:rgba(255,107,0,.06)}
-.fc-img-wrap img{width:100%;height:100%;object-fit:cover}
+.fc-img-wrap{position:relative;overflow:hidden;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;background:rgba(255,107,0,.06)}
+.fc-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:center}
 .fc-emoji{font-size:5rem;user-select:none}
 .fc-badge{position:absolute;top:8px;left:8px;background:var(--orange);color:#fff;font-size:.68rem;font-weight:800;padding:.18rem .55rem;border-radius:5px;text-transform:uppercase;letter-spacing:.4px}
 .fc-body{padding:1rem;flex:1;display:flex;flex-direction:column;gap:.45rem}
@@ -180,7 +180,7 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
 /* ── MENU PAGE ── */
 .menu-hero{padding:2.5rem 1.2rem;text-align:center;background:linear-gradient(135deg,rgba(255,107,0,.1) 0%,rgba(214,48,49,.07) 100%);border-bottom:1px solid var(--border)}
 .search-wrap{position:relative;max-width:420px;margin:1.3rem auto 0}
-.search-wrap input{width:100%;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:50px;padding:.7rem 1.1rem .7rem 2.8rem;color:var(--text);font-family:'Nunito',sans-serif;font-size:.9rem;outline:none;transition:border-color var(--t)}
+.search-wrap input{width:100%;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:50px;padding:.7rem 1.1rem .7rem 2.8rem;color:var(--text);font-family:'Nunito',sans-serif;font-size:.9rem;outline:none}
 .search-wrap input:focus{border-color:var(--orange)}
 .search-wrap input::placeholder{color:#444}
 .s-ico{position:absolute;left:.95rem;top:50%;transform:translateY(-50%);color:var(--muted);font-size:.95rem;pointer-events:none}
@@ -215,7 +215,7 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
 .footer{background:#0A0A0A;border-top:1px solid var(--border);padding:2.5rem 1.2rem 1.3rem}
 .f-inner{max-width:1060px;margin:0 auto}
 .f-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:1.8rem;margin-bottom:1.8rem}
-.f-brand{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:1px;background:linear-gradient(135deg,var(--orange),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:800}
+.f-brand{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:1px;background:linear-gradient(135deg,var(--orange),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .f-tag{color:var(--muted);font-size:.82rem}
 .f-col h4{font-weight:800;font-size:.87rem;margin-bottom:.8rem}
 .f-col ul{list-style:none;display:flex;flex-direction:column;gap:.35rem}
@@ -227,8 +227,8 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
 .f-heart{color:var(--red)}
 
 /* RESPONSIVE */
-@media(max-width:860px){.hero-inner{grid-template-columns:1fr;text-align:center}.hero-sub,.hero-cta,.hero-stats{margin-left:auto;margin-right:auto}.hero-cta{justify-content:center}.hero-stats{justify-content:center}}
-@media(max-width:640px){.nav-links{display:none}.hbg{display:flex}}
+@media(max-width:860px){.hero-inner{grid-template-columns:1fr;text-align:center}.hero-sub,.hero-cta,.hero-stats{margin-left:auto;margin-right:auto}.hero-cta{justify-content:center}.hero-stats{justify-content:center}.food-grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}}
+@media(max-width:640px){.nav-links{display:none}.hbg{display:flex}.food-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}}
 @media(max-width:400px){.login-card,.lo-card{padding:1.6rem 1.1rem}}
 </style>
 </head>
@@ -303,7 +303,7 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-
       <div class="hero-visual">
         <div class="hero-ring">
           <div class="hero-glow"></div>
-          <div class="hero-food"><img src="Burger.jpg" alt="Burger"></div>
+          <div class="hero-food"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&h=600&fit=crop" alt="Burger"></div>
           <div class="chip chip-1">🍔 ₹149</div>
           <div class="chip chip-2">🌯 ₹99</div>
           <div class="chip chip-3">🍟 ₹79</div>
@@ -442,7 +442,7 @@ const MENU=[
   id:'burger',
   name:'Crispy Burger',
   price:149,
-  image:'images/burger.jpg',
+  image:'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&h=600&fit=crop',
   emoji:'🍔',
   desc:'Juicy patty with crispy fries, cheese & special sauce',
   badge:'Best Seller'
@@ -451,7 +451,7 @@ const MENU=[
   id:'franky',
   name:'Spicy Franky',
   price:99,
-  image:'images/franky.jpg',
+  image:'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&h=600&fit=crop',
   emoji:'🌯',
   desc:'Traditional Mumbai street wrap filled with veggies & spices',
   badge:'Street Fav'
@@ -460,7 +460,7 @@ const MENU=[
   id:'vadapav',
   name:'Vada Pav',
   price:49,
-  image:'images/vadapav.jpg',
+  image:'https://images.unsplash.com/photo-1585238341710-4dd0e06a1c6e?w=800&h=600&fit=crop',
   emoji:'🥙',
   desc:'Crispy potato dumpling with tangy chutney',
   badge:'Mumbai Style'
@@ -469,7 +469,7 @@ const MENU=[
   id:'fries',
   name:'French Fries',
   price:79,
-  image:'images/fries.jpg',
+  image:'https://images.unsplash.com/photo-1576107232684-1279f390859f?w=800&h=600&fit=crop',
   emoji:'🍟',
   desc:'Golden, crispy fries with seasoning salt',
   badge:'Crispy!'
@@ -554,7 +554,7 @@ function showPage(p){
 // ── HAMBURGER ──
 function toggleHbg(){const b=document.getElementById('hbg');const m=document.getElementById('mob-menu');b.classList.toggle('open');m.classList.toggle('open');}
 function closeHbg(){document.getElementById('hbg').classList.remove('open');document.getElementById('mob-menu').classList.remove('open');}
-document.addEventListener('click',e=>{const b=document.getElementById('hbg');const m=document.getElementById('mob-menu');if(b&&m&&!b.contains(e.target)&&!m.contains(e.target)){b.classList.remove('open');m.classList.remove('open');}});
+document.addEventListener('click',e=>{const b=document.getElementById('hbg');const m=document.getElementById('mob-menu');if(b&&m&&!b.contains(e.target)&&!m.contains(e.target)){b.classList.remove('open');}});
 
 // ── LOGIN ──
 function doLogin(){
@@ -603,7 +603,7 @@ function filterMenu(){
 function renderHistory(){
   const el=document.getElementById('h-list');if(!el)return;
   const hist=LS.get('cnd_history')||[];
-  if(!hist.length){el.innerHTML=`<div class="empty-h"><div class="e-ico">📋</div><p>No orders yet. Start by ordering something delicious!</p><button class="btn btn-p" style="margin-top:1rem" onclick="showPage('menu')">Browse Menu</button></div>`;return;}
+  if(!hist.length){el.innerHTML=`<div class="empty-h"><div class="e-ico">📋</div><p>No orders yet. Start by ordering something delicious!</p><button class="btn btn-p" style="margin-top:1rem" onclick="showPage('menu')">Start Ordering 🚀</button></div>`;return;}
   el.innerHTML=hist.map(o=>`
     <div class="h-card">
       <div class="h-head"><div><div class="h-id">${o.id}</div><div class="h-date">📅 ${o.date}</div></div><span class="h-status">✓ Delivered</span></div>
